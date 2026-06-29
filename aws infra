@@ -1,1 +1,11 @@
+AWS Infrastructure
 
+Create
+VPC
+Public Subnet
+Jenkins EC2
+Ansible EC2
+Target EC2(Web Server)
+Internet Gateway
+Security Groups
+Route Table
