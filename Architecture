@@ -1,1 +1,41 @@
-
+                           Developer
+                               │
+                               │
+                          Git Push
+                               │
+                               ▼
+                           GitHub Repo
+                               │
+          ┌────────────────────┴────────────────────┐
+          │                                         │
+          ▼                                         ▼
+    develop branch                          master branch
+          │                                         │
+          │                                         │
+          ▼                                         ▼
+      AWS CodeBuild                          AWS CodeBuild
+      (Test Only)                      (Test + Deploy Production)
+          │                                         │
+          └────────────────────┬────────────────────┘
+                               │
+                               ▼
+                           Jenkins
+                     (Pipeline Execution)
+                               │
+        ┌──────────────────────┼────────────────────────┐
+        │                      │                        │
+        ▼                      ▼                        ▼
+     Build Job             Test Job               Production Job
+        │                      │                        │
+        └──────────────┬───────┴───────────────┬────────┘
+                       │                       │
+                       ▼                       ▼
+                 Docker Build           Ansible Deploy
+                       │
+                       ▼
+             Docker Container
+            hshar/webapp Image
+                       │
+                       ▼
+               Apache Web Server
+          (/var/www/html application)
